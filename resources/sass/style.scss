@@ -1,0 +1,50 @@
+@media screen and (max-width: 768px) {
+    body {
+        background-color: #ffeedd;
+        header {
+            .header-nav {
+                background-color: rgba(244, 190, 155, 0.6);
+            }
+        }
+        main {
+            .listSec {
+                .container {
+                    margin: 0 auto;
+                    width: 90%;
+                    .listSec-top {
+                        display: flex;
+                        justify-content: space-between;
+                        .listSec-title {
+                            align-items: center;
+                            margin: 0;
+                            font-size: 1rem;
+                        }
+                        .add-icon {
+                            align-items: center;
+                            margin: 0;
+                            font-size: 0.8erm;
+                        }
+                    }
+                    .task-list {
+                        width: 100%;
+                        tr {
+                            th {
+                                font-size: 0.8rem;
+                            }
+                        }
+                    }
+                }
+            }
+            .createSec {
+                .container {
+                    .createSec-top {
+                        .createSec-title {
+                            margin: 0;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

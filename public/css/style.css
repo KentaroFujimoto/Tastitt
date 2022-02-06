@@ -1,0 +1,36 @@
+@media screen and (max-width: 768px) {
+  body {
+    background-color: #ffeedd;
+  }
+  body header .header-nav {
+    background-color: rgba(244, 190, 155, 0.6);
+  }
+  body main .listSec .container {
+    margin: 0 auto;
+    width: 90%;
+  }
+  body main .listSec .container .listSec-top {
+    display: flex;
+    justify-content: space-between;
+  }
+  body main .listSec .container .listSec-top .listSec-title {
+    align-items: center;
+    margin: 0;
+    font-size: 1rem;
+  }
+  body main .listSec .container .listSec-top .add-icon {
+    align-items: center;
+    margin: 0;
+    font-size: 0.8erm;
+  }
+  body main .listSec .container .task-list {
+    width: 100%;
+  }
+  body main .listSec .container .task-list tr th {
+    font-size: 0.8rem;
+  }
+  body main .createSec .container .createSec-top .createSec-title {
+    margin: 0;
+    font-size: 1rem;
+  }
+}/*# sourceMappingURL=style.css.map */
