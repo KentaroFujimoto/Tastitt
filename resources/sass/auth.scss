@@ -1,0 +1,86 @@
+$sans-serif: 'Righteous', cursive;
+$bg-color: #ffdab9;
+$font-color: #404048;
+$fs: 4vw;
+
+body {
+    background-color: $bg-color;
+    main {
+        padding: 10vh 0;
+        .loginSec,
+        .registerSec {
+            .container {
+                .loginSec-top {
+                    .loginSec-title {
+                        text-align: center;
+                        font-family: $sans-serif;
+                        letter-spacing: 0.2rem;
+                        color: white;
+                        font-size: 12vw;
+                    }
+                }
+                form {
+                    margin: 3rem auto 0;
+                    width: 80%;
+                    font-size: $fs;
+                    .form-input {
+                        margin-bottom: 0.5rem;
+                        input {
+                            border: none;
+                            border-bottom: 1px solid white;
+                            background-color: $bg-color;
+                            width: 100%;
+                        }
+                        input::placeholder {
+                            color: $font-color;
+                        }
+                        span {
+                            strong {
+                                font-size: $fs;
+                                color: red;
+                            }
+                        }
+                    }
+                    .form-check {
+                        display: flex;
+                        input,
+                        label {
+                            display: inline-block;
+                            align-items: center;
+                        }
+                        input {
+                            margin-right: 1vw;
+                            width: 4vw;
+                            height: 4vw;
+                        }
+                        label {
+                            color: $font-color;
+                        }
+                    }
+                    .form-submit {
+                        display: flex;
+                        flex-direction: column;
+                        button {
+                            margin: 0.4rem auto 1rem;
+                            width: 6rem;
+                            border: 2px solid white;
+                            border-radius: 5%;
+                            background-color: $bg-color;
+                            color: $font-color;
+                        }
+                        .form-link {
+                            text-align: center;
+                            .form-link-pass,
+                            .form-link-reg {
+                                display: inline-block;
+                                margin-bottom: 0.4rem;
+                                border-bottom: 1px solid blue;
+                                color: blue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

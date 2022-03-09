@@ -1,50 +1,322 @@
-@media screen and (max-width: 768px) {
-    body {
-        background-color: #ffeedd;
-        header {
-            .header-nav {
-                background-color: rgba(244, 190, 155, 0.6);
+$sans-serif: 'Righteous', cursive;
+$header-color: #ffdab9;
+$main-color: #fffff0;
+$task-color: #ffefd5;
+$font-color-1: #404048;
+$color-link: gray;
+$fs-main: 3.4vw;
+$fs-header: 6vw;
+
+body {
+    font-size: $fs-main;
+    background-color: #fffff0;
+    header {
+        display: flex;
+        justify-content: space-between;
+        background-color: $header-color;
+        .header-title {
+            align-items: center;
+            display: flex;
+            margin: 0 0 0 5vw;
+            a {
+                font-family: $sans-serif;
+                display: inline-block;
+                align-items: center;
+                letter-spacing: 0.2rem;
+                font-size: $fs-header;
+                color: white;
             }
         }
-        main {
-            .listSec {
-                .container {
-                    margin: 0 auto;
-                    width: 90%;
-                    .listSec-top {
-                        display: flex;
-                        justify-content: space-between;
-                        .listSec-title {
-                            align-items: center;
-                            margin: 0;
-                            font-size: 1rem;
-                        }
-                        .add-icon {
-                            align-items: center;
-                            margin: 0;
-                            font-size: 0.8erm;
-                        }
+        .header-icon {
+            position: relative;
+            display: flex;
+            margin-right: 5vw;
+            .logout-link {
+                display: inline-block;
+                margin: 0.8rem 0 0.8rem 0;
+                font-size: 4vw;
+                span {
+                    display: inline-block;
+                    margin: 0 0.5vw 0 0;
+                    width: 0;
+                    height: 0;
+                    border-top: 1.4vw solid transparent;
+                    border-bottom: 1.4vw solid transparent;
+                    border-left: 1.6vw solid black;
+                    border-right: none;
+                }
+                span.active {
+                    margin: 0 0.5vw 0.5vw 0;
+                    border-right: 1.4vw solid transparent;
+                    border-left: 1.4vw solid transparent;
+                    border-top: 1.6vw solid black;
+                    border-bottom: none;
+                }
+            }
+            .logout-form {
+                position: absolute;
+                top: 2rem;
+                right: 0;
+                input {
+                    border: 1px solid white;
+                    border-radius: 10%;
+                    padding: 0.2rem;
+                    font-size: $fs-main;
+                    background-color: white;
+                }
+            }
+        }
+
+    }
+    main {
+        .listSec {
+            .container {
+                .listSec-top {
+                    display: flex;
+                    justify-content: right;
+                    margin: 1rem 0 0.5rem 0;
+                    .add-icon {
+                        display: block;
+                        align-items: center;
+                        width: 4vw;
+                        height: 4vw;
+                        background-image: url("../image/ico_add.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
                     }
-                    .task-list {
+                    .add-text {
+                        display: inline-block;
+                        align-items: center;
+                        margin: 0;
+                        font-size: $fs-main;
+                        color: $color-link;
+                    }
+                }
+                .task-list {
+                    padding: 0;
+                    li {
+                        box-sizing: border-box;
+                        overflow: hidden;
+                        margin-bottom: 0.7rem;
+                        padding: 0.4rem;
                         width: 100%;
-                        tr {
-                            th {
-                                font-size: 0.8rem;
+                        border: 3px solid $task-color;
+                        border-radius: 0.5rem;
+                        font-size: $fs-main;
+                        background-color: $task-color;
+                        .task-list-main {
+                            display: flex;
+                            justify-content: space-between;
+                            .task-list-various {
+                                margin-right: 3vw;
+                                .task-list-content {
+                                    text-align: justify;
+                                    margin-bottom: 0.4rem;
+                                    .task-list-level {
+                                        font-size: $fs-main;
+                                        color: red;
+                                    }
+                                }
+                            }
+                            .task-list-operates {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                min-width: 7vw;
+                                a {
+                                    display: block;
+                                    color: $color-link;
+                                }
+                                .task-list-edit {
+                                    margin-bottom: 0.2rem;
+                                }
+                            }
+                        }
+                        .task-list-sub {
+                            text-align: right;
+                            margin-top: 1vw;
+                            .task-notify {
+                                display: inline-block;
+                                margin: 0;
+                                padding: 0;
+                                font-size: $fs-main;
+                            }
+                            .task-notify:not(:last-child) {
+                                margin-right: 1vw;
                             }
                         }
                     }
                 }
             }
-            .createSec {
-                .container {
-                    .createSec-top {
-                        .createSec-title {
-                            margin: 0;
-                            font-size: 1rem;
+        }
+        .createSec,
+        .editSec{
+            .container {
+                .createSec-top,
+                .editSec-top{
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 1rem 0 0.5rem 0;
+                    .createSec-title {
+                        margin: 0;
+                        font-size: 4vw;
+                    }
+                    .createSec-link {
+                        font-size: $fs-main;
+                        color: $color-link;
+                    }
+                }
+                form {
+                    table {
+                        margin: 0;
+                        width: 100%;
+                        tr {
+                            display: block;
+                            margin-bottom: 0.5rem;
+                            padding: 0.3rem 0;
+                            font-size: $fs-main;
+                            border-top: 1px solid $header-color;
+                            th {
+                                width: 20vw;
+                                span {
+                                    font-weight: normal;
+                                    font-size: 2.6vw;
+                                }
+                            }
+                            td {
+                                width: 70vw;
+                                .form-alert {
+                                    color: red;
+                                    font-size: $fs-main;
+                                }
+                            }
+                            .form-content {
+                                textarea {
+                                    display: block;
+                                }
+                                ul {
+                                    margin-top: 0.2rem;
+                                    li {
+                                        display: flex;
+                                        input {
+                                            display: block;
+                                            margin: 0.4vw 0.2vw 0 0;
+                                            width: 3vw;
+                                            height: 3vw;
+                                        }
+                                    }
+                                }
+                            }
+                            .form-datetime {
+                                .form-datetime-date {
+                                    margin-bottom: 0.3rem;
+                                }
+                            }
+                            .form-notify {
+                                ul {
+                                    display: flex;
+                                    margin-bottom: 1vw;
+                                    li {
+                                        margin-right: 1vw;
+                                        input {
+                                            width: 3vw;
+                                            height: 3vw;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        tr:last-child {
+                            border-bottom: 1px solid $header-color;
+                        }
+                    }
+                    .form-submit {
+                        text-align: center;
+                        .input-submit {
+                            font-size: $fs-main;
+                            border: 2px solid $header-color;
+                            border-radius: 0.2rem;
+                            background-color: $header-color;
+                            color: white;
+                        }
+                    }
+                }
+                .destroy-link {
+                    text-align: center;
+                    margin-top: 0.4rem;
+                    .destroy-link-show{
+                        border-bottom: 1px solid red;
+                        color: red;
+                        font-size: $fs-main;
+                    }
+                    .destroy-content {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        background-color: rgba(244, 190, 155, 0.9);
+                        .destroy-content-link {
+                            position: absolute;
+                            top: 40%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            font-size: 4.2vw;
+                            p {
+                                display: block;
+                                white-space: nowrap;
+                                margin-bottom: 1rem;
+                            }
+                            .destroy-confirm {
+                                display: flex;
+                                justify-content: center;
+                                form {
+                                    margin-right: 6vw;
+                                    input {
+                                        padding: 0;
+                                        border: none;
+                                        background-color: transparent;
+                                        color: blue;
+                                    }
+                                }
+                                a {
+                                    display: inline-block;
+                                    color: blue;
+                                }
+                                a:first-child {
+                                    margin-right: 5vw;
+                                }
+                            }
                         }
                     }
                 }
             }
         }
     }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 }
+
+
+@media screen and (min-width: 481px) {
+    body {
+        font-size: 1rem !important;
+        header {
+            .header-nav {
+                background-color: rgba(244, 190, 155, 0.6);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 960px) {
+    body {
+        font-size: 1rem !important;
+    }
+}
+

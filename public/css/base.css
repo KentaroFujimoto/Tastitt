@@ -1,0 +1,74 @@
+a {
+  border: none;
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  margin: 0;
+}
+
+input,
+textarea {
+  border: 1px solid gray;
+  background-color: #fffff0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+}
+
+.flash {
+  position: absolute;
+  top: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3vw;
+  -webkit-animation: fadeOut 5s;
+          animation: fadeOut 5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+.flash.flash-success {
+  color: green;
+}
+
+.flash.flash-failure {
+  color: red;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}/*# sourceMappingURL=base.css.map */

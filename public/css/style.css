@@ -1,36 +1,323 @@
-@media screen and (max-width: 768px) {
+body {
+  font-size: 3.4vw;
+  background-color: #fffff0;
+}
+body header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffdab9;
+}
+body header .header-title {
+  align-items: center;
+  display: flex;
+  margin: 0 0 0 5vw;
+}
+body header .header-title a {
+  font-family: "Righteous", cursive;
+  display: inline-block;
+  align-items: center;
+  letter-spacing: 0.2rem;
+  font-size: 6vw;
+  color: white;
+}
+body header .header-icon {
+  position: relative;
+  display: flex;
+  margin-right: 5vw;
+}
+body header .header-icon .logout-link {
+  display: inline-block;
+  margin: 0.8rem 0 0.8rem 0;
+  font-size: 4vw;
+}
+body header .header-icon .logout-link span {
+  display: inline-block;
+  margin: 0 0.5vw 0 0;
+  width: 0;
+  height: 0;
+  border-top: 1.4vw solid transparent;
+  border-bottom: 1.4vw solid transparent;
+  border-left: 1.6vw solid black;
+  border-right: none;
+}
+body header .header-icon .logout-link span.active {
+  margin: 0 0.5vw 0.5vw 0;
+  border-right: 1.4vw solid transparent;
+  border-left: 1.4vw solid transparent;
+  border-top: 1.6vw solid black;
+  border-bottom: none;
+}
+body header .header-icon .logout-form {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+}
+body header .header-icon .logout-form input {
+  border: 1px solid white;
+  border-radius: 10%;
+  padding: 0.2rem;
+  font-size: 3.4vw;
+  background-color: white;
+}
+body main .listSec .container .listSec-top {
+  display: flex;
+  justify-content: right;
+  margin: 1rem 0 0.5rem 0;
+}
+body main .listSec .container .listSec-top .add-icon {
+  display: block;
+  align-items: center;
+  width: 4vw;
+  height: 4vw;
+  background-image: url("../image/ico_add.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+body main .listSec .container .listSec-top .add-text {
+  display: inline-block;
+  align-items: center;
+  margin: 0;
+  font-size: 3.4vw;
+  color: gray;
+}
+body main .listSec .container .task-list {
+  padding: 0;
+}
+body main .listSec .container .task-list li {
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 0.7rem;
+  padding: 0.4rem;
+  width: 100%;
+  border: 3px solid #ffefd5;
+  border-radius: 0.5rem;
+  font-size: 3.4vw;
+  background-color: #ffefd5;
+}
+body main .listSec .container .task-list li .task-list-main {
+  display: flex;
+  justify-content: space-between;
+}
+body main .listSec .container .task-list li .task-list-main .task-list-various {
+  margin-right: 3vw;
+}
+body main .listSec .container .task-list li .task-list-main .task-list-various .task-list-content {
+  text-align: justify;
+  margin-bottom: 0.4rem;
+}
+body main .listSec .container .task-list li .task-list-main .task-list-various .task-list-content .task-list-level {
+  font-size: 3.4vw;
+  color: red;
+}
+body main .listSec .container .task-list li .task-list-main .task-list-operates {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 7vw;
+}
+body main .listSec .container .task-list li .task-list-main .task-list-operates a {
+  display: block;
+  color: gray;
+}
+body main .listSec .container .task-list li .task-list-main .task-list-operates .task-list-edit {
+  margin-bottom: 0.2rem;
+}
+body main .listSec .container .task-list li .task-list-sub {
+  text-align: right;
+  margin-top: 1vw;
+}
+body main .listSec .container .task-list li .task-list-sub .task-notify {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 3.4vw;
+}
+body main .listSec .container .task-list li .task-list-sub .task-notify:not(:last-child) {
+  margin-right: 1vw;
+}
+body main .createSec .container .createSec-top,
+body main .createSec .container .editSec-top,
+body main .editSec .container .createSec-top,
+body main .editSec .container .editSec-top {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 0.5rem 0;
+}
+body main .createSec .container .createSec-top .createSec-title,
+body main .createSec .container .editSec-top .createSec-title,
+body main .editSec .container .createSec-top .createSec-title,
+body main .editSec .container .editSec-top .createSec-title {
+  margin: 0;
+  font-size: 4vw;
+}
+body main .createSec .container .createSec-top .createSec-link,
+body main .createSec .container .editSec-top .createSec-link,
+body main .editSec .container .createSec-top .createSec-link,
+body main .editSec .container .editSec-top .createSec-link {
+  font-size: 3.4vw;
+  color: gray;
+}
+body main .createSec .container form table,
+body main .editSec .container form table {
+  margin: 0;
+  width: 100%;
+}
+body main .createSec .container form table tr,
+body main .editSec .container form table tr {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem 0;
+  font-size: 3.4vw;
+  border-top: 1px solid #ffdab9;
+}
+body main .createSec .container form table tr th,
+body main .editSec .container form table tr th {
+  width: 20vw;
+}
+body main .createSec .container form table tr th span,
+body main .editSec .container form table tr th span {
+  font-weight: normal;
+  font-size: 2.6vw;
+}
+body main .createSec .container form table tr td,
+body main .editSec .container form table tr td {
+  width: 70vw;
+}
+body main .createSec .container form table tr td .form-alert,
+body main .editSec .container form table tr td .form-alert {
+  color: red;
+  font-size: 3.4vw;
+}
+body main .createSec .container form table tr .form-content textarea,
+body main .editSec .container form table tr .form-content textarea {
+  display: block;
+}
+body main .createSec .container form table tr .form-content ul,
+body main .editSec .container form table tr .form-content ul {
+  margin-top: 0.2rem;
+}
+body main .createSec .container form table tr .form-content ul li,
+body main .editSec .container form table tr .form-content ul li {
+  display: flex;
+}
+body main .createSec .container form table tr .form-content ul li input,
+body main .editSec .container form table tr .form-content ul li input {
+  display: block;
+  margin: 0.4vw 0.2vw 0 0;
+  width: 3vw;
+  height: 3vw;
+}
+body main .createSec .container form table tr .form-datetime .form-datetime-date,
+body main .editSec .container form table tr .form-datetime .form-datetime-date {
+  margin-bottom: 0.3rem;
+}
+body main .createSec .container form table tr .form-notify ul,
+body main .editSec .container form table tr .form-notify ul {
+  display: flex;
+  margin-bottom: 1vw;
+}
+body main .createSec .container form table tr .form-notify ul li,
+body main .editSec .container form table tr .form-notify ul li {
+  margin-right: 1vw;
+}
+body main .createSec .container form table tr .form-notify ul li input,
+body main .editSec .container form table tr .form-notify ul li input {
+  width: 3vw;
+  height: 3vw;
+}
+body main .createSec .container form table tr:last-child,
+body main .editSec .container form table tr:last-child {
+  border-bottom: 1px solid #ffdab9;
+}
+body main .createSec .container form .form-submit,
+body main .editSec .container form .form-submit {
+  text-align: center;
+}
+body main .createSec .container form .form-submit .input-submit,
+body main .editSec .container form .form-submit .input-submit {
+  font-size: 3.4vw;
+  border: 2px solid #ffdab9;
+  border-radius: 0.2rem;
+  background-color: #ffdab9;
+  color: white;
+}
+body main .createSec .container .destroy-link,
+body main .editSec .container .destroy-link {
+  text-align: center;
+  margin-top: 0.4rem;
+}
+body main .createSec .container .destroy-link .destroy-link-show,
+body main .editSec .container .destroy-link .destroy-link-show {
+  border-bottom: 1px solid red;
+  color: red;
+  font-size: 3.4vw;
+}
+body main .createSec .container .destroy-link .destroy-content,
+body main .editSec .container .destroy-link .destroy-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(244, 190, 155, 0.9);
+}
+body main .createSec .container .destroy-link .destroy-content .destroy-content-link,
+body main .editSec .container .destroy-link .destroy-content .destroy-content-link {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4.2vw;
+}
+body main .createSec .container .destroy-link .destroy-content .destroy-content-link p,
+body main .editSec .container .destroy-link .destroy-content .destroy-content-link p {
+  display: block;
+  white-space: nowrap;
+  margin-bottom: 1rem;
+}
+body main .createSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm,
+body main .editSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm {
+  display: flex;
+  justify-content: center;
+}
+body main .createSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm form,
+body main .editSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm form {
+  margin-right: 6vw;
+}
+body main .createSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm form input,
+body main .editSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm form input {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: blue;
+}
+body main .createSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm a,
+body main .editSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm a {
+  display: inline-block;
+  color: blue;
+}
+body main .createSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm a:first-child,
+body main .editSec .container .destroy-link .destroy-content .destroy-content-link .destroy-confirm a:first-child {
+  margin-right: 5vw;
+}
+body footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (min-width: 481px) {
   body {
-    background-color: #ffeedd;
+    font-size: 1rem !important;
   }
   body header .header-nav {
     background-color: rgba(244, 190, 155, 0.6);
   }
-  body main .listSec .container {
-    margin: 0 auto;
-    width: 90%;
-  }
-  body main .listSec .container .listSec-top {
-    display: flex;
-    justify-content: space-between;
-  }
-  body main .listSec .container .listSec-top .listSec-title {
-    align-items: center;
-    margin: 0;
-    font-size: 1rem;
-  }
-  body main .listSec .container .listSec-top .add-icon {
-    align-items: center;
-    margin: 0;
-    font-size: 0.8erm;
-  }
-  body main .listSec .container .task-list {
-    width: 100%;
-  }
-  body main .listSec .container .task-list tr th {
-    font-size: 0.8rem;
-  }
-  body main .createSec .container .createSec-top .createSec-title {
-    margin: 0;
-    font-size: 1rem;
+}
+@media screen and (min-width: 960px) {
+  body {
+    font-size: 1rem !important;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -15,13 +15,23 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title', 100);
-            $table->longtext('content');
-            $table->date('date');
-            $table->time('time');
-            $table->integer('user_id');
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->unsignedBigInteger('user_id')->comment('ユーザID');
+            $table->longtext('content', 127)->comment('内容');
+            $table->boolean('level')->nullable(false)->comment('重要度');
+            $table->string('date')->comment('期限日');
+            $table->string('week')->comment('期限曜日');
+            $table->string('time')->nullable()->comment('期限時間');
+            $table->string('notify_time')->comment('通知時間');
+            $table->string('notify_date_1')->nullable()->comment('通知日1');
+            $table->string('notify_week_1')->nullable()->comment('通知曜日1');
+            $table->string('notify_date_2')->nullable()->comment('通知日2');
+            $table->string('notify_week_2')->nullable()->comment('通知曜日2');
+            $table->string('notify_date_3')->nullable()->comment('通知日3');
+            $table->string('notify_week_3')->nullable()->comment('通知曜日3');
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))->comment('更新日');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('作成日');
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

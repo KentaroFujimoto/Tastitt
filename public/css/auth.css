@@ -1,0 +1,94 @@
+body {
+  background-color: #ffdab9;
+}
+body main {
+  padding: 10vh 0;
+}
+body main .loginSec .container .loginSec-top .loginSec-title,
+body main .registerSec .container .loginSec-top .loginSec-title {
+  text-align: center;
+  font-family: "Righteous", cursive;
+  letter-spacing: 0.2rem;
+  color: white;
+  font-size: 12vw;
+}
+body main .loginSec .container form,
+body main .registerSec .container form {
+  margin: 3rem auto 0;
+  width: 80%;
+  font-size: 4vw;
+}
+body main .loginSec .container form .form-input,
+body main .registerSec .container form .form-input {
+  margin-bottom: 0.5rem;
+}
+body main .loginSec .container form .form-input input,
+body main .registerSec .container form .form-input input {
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: #ffdab9;
+  width: 100%;
+}
+body main .loginSec .container form .form-input input::-moz-placeholder, body main .registerSec .container form .form-input input::-moz-placeholder {
+  color: #404048;
+}
+body main .loginSec .container form .form-input input:-ms-input-placeholder, body main .registerSec .container form .form-input input:-ms-input-placeholder {
+  color: #404048;
+}
+body main .loginSec .container form .form-input input::placeholder,
+body main .registerSec .container form .form-input input::placeholder {
+  color: #404048;
+}
+body main .loginSec .container form .form-input span strong,
+body main .registerSec .container form .form-input span strong {
+  font-size: 4vw;
+  color: red;
+}
+body main .loginSec .container form .form-check,
+body main .registerSec .container form .form-check {
+  display: flex;
+}
+body main .loginSec .container form .form-check input,
+body main .loginSec .container form .form-check label,
+body main .registerSec .container form .form-check input,
+body main .registerSec .container form .form-check label {
+  display: inline-block;
+  align-items: center;
+}
+body main .loginSec .container form .form-check input,
+body main .registerSec .container form .form-check input {
+  margin-right: 1vw;
+  width: 4vw;
+  height: 4vw;
+}
+body main .loginSec .container form .form-check label,
+body main .registerSec .container form .form-check label {
+  color: #404048;
+}
+body main .loginSec .container form .form-submit,
+body main .registerSec .container form .form-submit {
+  display: flex;
+  flex-direction: column;
+}
+body main .loginSec .container form .form-submit button,
+body main .registerSec .container form .form-submit button {
+  margin: 0.4rem auto 1rem;
+  width: 6rem;
+  border: 2px solid white;
+  border-radius: 5%;
+  background-color: #ffdab9;
+  color: #404048;
+}
+body main .loginSec .container form .form-submit .form-link,
+body main .registerSec .container form .form-submit .form-link {
+  text-align: center;
+}
+body main .loginSec .container form .form-submit .form-link .form-link-pass,
+body main .loginSec .container form .form-submit .form-link .form-link-reg,
+body main .registerSec .container form .form-submit .form-link .form-link-pass,
+body main .registerSec .container form .form-submit .form-link .form-link-reg {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid blue;
+  color: blue;
+}/*# sourceMappingURL=auth.css.map */

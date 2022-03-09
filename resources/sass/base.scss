@@ -1,0 +1,63 @@
+$header-color: #ffdab9;
+$main-color: #fffff0;
+
+a {
+    border: none;
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    margin: 0;
+}
+
+input,
+textarea {
+    border: 1px solid gray;
+    background-color: $main-color;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+}
+
+.flash {
+    position: absolute;
+    top: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3vw;
+    animation : fadeOut 5s;
+    animation-fill-mode: both;
+}
+
+.flash.flash-success {
+    color: green;
+}
+
+.flash.flash-failure {
+    color: red;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
