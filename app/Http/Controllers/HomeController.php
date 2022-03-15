@@ -59,11 +59,15 @@ class HomeController extends Controller
         $posts['week'] = $week_array[$week_key];
 
         //通知時間。
-        $notify_time = explode(':', $posts['time']);
-        if (intval($notify_time[1]) > 0 && intval($notify_time[1]) < 30) {
-            $posts['notify_time'] = $notify_time[0].":00";
-        } else if (intval($notify_time[1]) > 30) {
-            $posts['notify_time'] = $notify_time[0].":30";
+        if (isset($posts['notify_time'])) {
+            $notify_time = explode(':', $posts['time']);
+            if (intval($notify_time[1]) > 0 && intval($notify_time[1]) < 30) {
+                $posts['notify_time'] = $notify_time[0].":00";
+            } else if (intval($notify_time[1]) > 30) {
+                $posts['notify_time'] = $notify_time[0].":30";
+            }
+        } else {
+            $posts['notify_time'] = "00:00";
         }
 
         //通知日、通知曜日。
