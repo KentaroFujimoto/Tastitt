@@ -9,6 +9,16 @@
         @if (session('message_failure'))
             <p class="flash flash-failure">{{ session('message_failure') }}</p>
         @endif
+        <div id="task-complete" class="task-complete" style="display: none">
+            <div class="display-confirm">
+                <form class="form-complete" action="{{ route('complete') }}" method="post">
+                    @csrf
+                    <input class="input-complete-id" type="hidden" name="id" value="">
+                    <input class="input-complete-yes" type="submit" value="タスクを完了する">
+                </form>
+                <a class="link-complete-no" href="javascript:;" onclick="taskComplete('task-complete', null)">キャンセル</a>
+            </div>
+        </div>
         <div class="listSec-top">
             <img class="add-icon" src="{{ asset("image/ico_add.png") }}" alt="追加">
             <a class="add-text" href="{{ route('create') }}">タスクを追加</a>
@@ -41,36 +51,8 @@
                     </div>
                     <div class="task-list-operates">
                         <a class="task-list-edit" href="{{ route('edit', ['id' => $task['id']]) }}">編集</a>
-                        <a class="task-list-notify" href="javascript:;" onclick="displayControll('<?php echo 'notify-'.$task['id'] ?>')">通知</a>
+                        <a class="task-list-notify" href="javascript:;" onclick="taskComplete('task-complete', '{{ $task['id'] }}')">完了</a>
                     </div>
-                </div>
-                <div id="{{ "notify-".$task['id'] }}" class="task-list-sub" style="display: none">
-                    <?php 
-                    $notify_date = array(
-                        $task['notify_date_1'],
-                        $task['notify_date_2'],
-                        $task['notify_date_3']
-                    );
-                    $notify_week = array(
-                        $task['notify_week_1'],
-                        $task['notify_week_2'],
-                        $task['notify_week_3']
-                    );
-
-                    for ($i=0; $i<count($notify_date); $i++) : 
-                        if (!empty($notify_date[$i])):
-                    ?>
-                    <p class="task-notify">
-                        <?php
-                        $notify_date_text = explode("-", $notify_date[$i]);
-
-                        echo ltrim($notify_date_text[1], '0')."/".ltrim($notify_date_text[2], '0')."(".$notify_week[$i].") ";
-                        ?>
-                    </p>
-                    <?php
-                        endif;
-                    endfor; 
-                    ?>
                 </div>
             </li>
             @endforeach

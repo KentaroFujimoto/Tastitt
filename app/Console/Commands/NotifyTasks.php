@@ -42,8 +42,6 @@ class NotifyTasks extends Command
      */
     public function handle()
     {
-        $ch = curl_init('https://notify-api.line.me/api/notify');
-
         $now = new DateTime("now");
         $now_day = $now->format('Y-m-d');
         $now_time = $now->format('H:i');
@@ -90,6 +88,7 @@ class NotifyTasks extends Command
                     CURLOPT_POSTFIELDS      => $query
                 ];
         
+                $ch = curl_init('https://notify-api.line.me/api/notify');
                 curl_setopt_array($ch, $options);
                 curl_exec($ch);
                 curl_close($ch);

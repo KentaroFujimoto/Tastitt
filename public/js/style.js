@@ -23,12 +23,18 @@ function inputDateControll() {
 
 }
 
-function displayControll(text) {
+function displayControll (text) {
 	$(`#${text}`).toggle();
 
 	if (text == "logout-form") {
 		$('#link-logout-triangle').toggleClass('active');
 	}
+}
+
+function taskComplete (text, id) {
+	$(`#${text}`).toggle();
+	$('.input-complete-id').attr('value', id);
+	console.log($('.input-complete-id').val());
 }
 
 function inputNotifyCheck(){

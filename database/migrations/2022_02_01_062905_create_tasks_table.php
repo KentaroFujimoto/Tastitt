@@ -28,8 +28,9 @@ class CreateTasksTable extends Migration
             $table->string('notify_week_2')->nullable()->comment('通知曜日2');
             $table->string('notify_date_3')->nullable()->comment('通知日3');
             $table->string('notify_week_3')->nullable()->comment('通知曜日3');
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))->comment('更新日');
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('作成日');
+            $table->datetime('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))->comment('更新日');
+            $table->datetime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('作成日');
+            $table->datetime('deleted_at')->nullable()->comment('削除日');
 
             $table->foreign('user_id')->references('id')->on('users');
         });

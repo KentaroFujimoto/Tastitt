@@ -53,11 +53,47 @@ body header .header-icon .logout-form {
   right: 0;
 }
 body header .header-icon .logout-form input {
+  -webkit-appearance: none;
   border: 1px solid white;
   border-radius: 10%;
   padding: 0.2rem;
   font-size: 3.4vw;
   background-color: white;
+}
+body main .listSec .container .task-complete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(244, 190, 155, 0.9);
+}
+body main .listSec .container .task-complete .display-confirm {
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  padding: 3vw 0;
+  width: 50vw;
+}
+body main .listSec .container .task-complete .display-confirm .form-complete {
+  margin-bottom: 3vw;
+}
+body main .listSec .container .task-complete .display-confirm .form-complete .input-complete-yes {
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  font-size: 4.2vw;
+  color: blue;
+}
+body main .listSec .container .task-complete .display-confirm .link-complete-no {
+  text-decoration: underline;
+  font-size: 4.2vw;
 }
 body main .listSec .container .listSec-top {
   display: flex;
@@ -121,19 +157,6 @@ body main .listSec .container .task-list li .task-list-main .task-list-operates 
 }
 body main .listSec .container .task-list li .task-list-main .task-list-operates .task-list-edit {
   margin-bottom: 0.2rem;
-}
-body main .listSec .container .task-list li .task-list-sub {
-  text-align: right;
-  margin-top: 1vw;
-}
-body main .listSec .container .task-list li .task-list-sub .task-notify {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  font-size: 3.4vw;
-}
-body main .listSec .container .task-list li .task-list-sub .task-notify:not(:last-child) {
-  margin-right: 1vw;
 }
 body main .createSec .container .createSec-top,
 body main .createSec .container .editSec-top,

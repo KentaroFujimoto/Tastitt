@@ -79,7 +79,8 @@
                 <div class="destroy-content-link">
                     <p>このタスクを削除しますか？</p>
                     <div class="destroy-confirm">
-                        <form action="{{ route('destroy') }}">
+                        <form action="{{ route('destroy') }}" method="post">
+                            @csrf
                             <input type="hidden" name="id" value="{{ $task['id'] }}">
                             <input type="submit" value="はい">
                         </form>

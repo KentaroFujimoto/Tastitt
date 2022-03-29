@@ -58,6 +58,7 @@ body {
                 top: 2rem;
                 right: 0;
                 input {
+                    -webkit-appearance: none;
                     border: 1px solid white;
                     border-radius: 10%;
                     padding: 0.2rem;
@@ -69,8 +70,44 @@ body {
 
     }
     main {
+        //ホーム画面
         .listSec {
             .container {
+                .task-complete {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    background-color: rgba(244, 190, 155, 0.9);
+                    .display-confirm {
+                        text-align: center;
+                        position: absolute;
+                        top: 40%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        margin: 0 auto;
+                        padding: 3vw 0;
+                        width: 50vw;
+                        .form-complete {
+                            margin-bottom: 3vw;
+                            .input-complete-yes {
+                                display: inline-block;
+                                border: none;
+                                background-color: transparent;
+                                margin: 0;
+                                padding: 0;
+                                font-size: 4.2vw;
+                                color: blue;
+                            }
+                        }
+                        .link-complete-no {
+                            text-decoration: underline;
+                            font-size: 4.2vw;
+                        }
+                    }
+                }
                 .listSec-top {
                     display: flex;
                     justify-content: right;
@@ -132,23 +169,11 @@ body {
                                 }
                             }
                         }
-                        .task-list-sub {
-                            text-align: right;
-                            margin-top: 1vw;
-                            .task-notify {
-                                display: inline-block;
-                                margin: 0;
-                                padding: 0;
-                                font-size: $fs-main;
-                            }
-                            .task-notify:not(:last-child) {
-                                margin-right: 1vw;
-                            }
-                        }
                     }
                 }
             }
         }
+        //登録、編集画面
         .createSec,
         .editSec{
             .container {
@@ -288,7 +313,7 @@ body {
                                     margin-right: 5vw;
                                 }
                             }
-                        }
+                        } 
                     }
                 }
             }

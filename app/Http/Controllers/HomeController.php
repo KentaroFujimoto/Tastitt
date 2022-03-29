@@ -59,12 +59,18 @@ class HomeController extends Controller
         $posts['week'] = $week_array[$week_key];
 
         //通知時間。
-        if (isset($posts['notify_time'])) {
-            $notify_time = explode(':', $posts['time']);
-            if (intval($notify_time[1]) > 0 && intval($notify_time[1]) < 30) {
-                $posts['notify_time'] = $notify_time[0].":00";
-            } else if (intval($notify_time[1]) > 30) {
-                $posts['notify_time'] = $notify_time[0].":30";
+        if (isset($posts['time'])) {
+            if ($posts['time'] !== "00:00") {
+                $notify_time = explode(':', $posts['time']);
+                if (intval($notify_time[1]) > 0 && intval($notify_time[1]) < 30) {
+                    $posts['notify_time'] = $notify_time[0].":00";
+                } else if (intval($notify_time[1]) > 30) {
+                    $posts['notify_time'] = $notify_time[0].":30";
+                } else {
+                    $posts['notify_time'] = $posts['time'];
+                }
+            } else {
+                $posts['notify_time'] = "00:00";
             }
         } else {
             $posts['notify_time'] = "00:00";
@@ -130,15 +136,16 @@ class HomeController extends Controller
     //タスク更新
     public function update(PostStoreRequest $request)
     {
-        // dd('here');
         $posts = $request->all();
 
         //重要がチェックされていたら1、されていなければ0。
-        isset($posts['level']) ? $posts['level'] = 1 : $posts['level'] = 0 ;
+        if (! isset($posts['level'])) {
+            $posts['level'] = 0;
+        }
 
         //時間が選択されていなければ00:00:00に。
         if (! isset($posts['time'])) {
-            $posts['time'] = "00:00:00";
+            $posts['time'] = "00:00";
         }
 
         //期限曜日を追加。
@@ -147,7 +154,25 @@ class HomeController extends Controller
         $week_key = intval($post_date->format('w'));
         $posts['week'] = $week_array[$week_key];
 
-        //通知日、通知曜日
+         //通知時間。
+        if (isset($posts['time'])) {
+            if ($posts['time'] !== "00:00") {
+                $notify_time = explode(':', $posts['time']);
+                if (intval($notify_time[1]) > 0 && intval($notify_time[1]) < 30) {
+                    $posts['notify_time'] = $notify_time[0].":00";
+                } else if (intval($notify_time[1]) > 30) {
+                    $posts['notify_time'] = $notify_time[0].":30";
+                } else {
+                    $posts['notify_time'] = $posts['time'];
+                }
+            } else {
+                $posts['notify_time'] = "00:00";
+            }
+        } else {
+            $posts['notify_time'] = "00:00";
+        }
+
+        //通知日、通知曜日。
         for ($i=0; $i<3; $i++) {
             $date = new DateTime($posts['date']);
             if (! empty($posts['notify'][$i])) {
@@ -194,6 +219,13 @@ class HomeController extends Controller
 
         session()->flash('message_success', "タスクを削除しました");
         return redirect()->route('home');
+    }
+
+    public function complete(Request $request)
+    {
+        $posts = $request->only('id');
+        
+        $update = $this->postControllService->postComplete($posts);
     }
 
     public function test()
