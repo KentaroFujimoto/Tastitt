@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/base.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <!-- Icons -->
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('image/favicon.png') }}" sizes="180x180">
 </head>
 <body>
     <div id="app">

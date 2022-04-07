@@ -7,6 +7,8 @@ $(function (){
     today = year + "-" + month + "-" + day;
 
 	$("#input-date").attr('min', today);
+
+	inputNotifyCheck();
 });
 
 function inputDateControll() {

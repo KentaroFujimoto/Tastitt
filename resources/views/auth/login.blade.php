@@ -4,7 +4,7 @@
 <section class="loginSec">
     <div class="container">
         <div class="loginSec-top">
-            <h1 class="loginSec-title">Tastify</h1>
+            <h1 class="loginSec-title">Tastitt</h1>
         </div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
