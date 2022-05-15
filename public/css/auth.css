@@ -72,12 +72,40 @@ body main .registerSec .container form .form-submit {
 }
 body main .loginSec .container form .form-submit button,
 body main .registerSec .container form .form-submit button {
-  margin: 0.4rem auto 1rem;
+  margin: 0.4rem auto 0.6rem;
   width: 6rem;
   border: 2px solid white;
   border-radius: 5%;
   background-color: #ffdab9;
   color: #404048;
+}
+body main .loginSec .container form .form-submit button:active,
+body main .registerSec .container form .form-submit button:active {
+  transform: translate(0, 2px);
+  border-bottom: none;
+}
+body main .loginSec .container form .form-submit .login-link,
+body main .registerSec .container form .form-submit .login-link {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 1rem;
+}
+body main .loginSec .container form .form-submit .login-link a,
+body main .registerSec .container form .form-submit .login-link a {
+  position: relative;
+  margin: 0 5vw;
+  width: 12vw;
+  height: 12vw;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+body main .loginSec .container form .form-submit .login-link a img,
+body main .registerSec .container form .form-submit .login-link a img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
 }
 body main .loginSec .container form .form-submit .form-link,
 body main .registerSec .container form .form-submit .form-link {
@@ -85,8 +113,10 @@ body main .registerSec .container form .form-submit .form-link {
 }
 body main .loginSec .container form .form-submit .form-link .form-link-pass,
 body main .loginSec .container form .form-submit .form-link .form-link-reg,
+body main .loginSec .container form .form-submit .form-link .form-link-log,
 body main .registerSec .container form .form-submit .form-link .form-link-pass,
-body main .registerSec .container form .form-submit .form-link .form-link-reg {
+body main .registerSec .container form .form-submit .form-link .form-link-reg,
+body main .registerSec .container form .form-submit .form-link .form-link-log {
   display: inline-block;
   margin-bottom: 0.4rem;
   border-bottom: 1px solid blue;

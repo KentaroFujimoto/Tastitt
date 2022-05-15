@@ -24,11 +24,14 @@ class HomeController extends Controller
     //タスク取得
     public function index()
     {
+        $today = new DateTime('now');
+        $today = $today->format('Y-m-d');
+
         $tasks = Task::where('user_id', '=', \Auth::id())
             ->orderBy('date', 'ASC')
             ->get();
 
-        return view('home', compact('tasks'));
+        return view('home', compact('today', 'tasks'));
     }
 
     //タスク追加ページ遷移

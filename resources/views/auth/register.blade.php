@@ -3,8 +3,8 @@
 @section('content')
 <section class="registerSec">
     <div class="container">
-        <div class="registerSec">
-            <h2 class="registerSec-title">新規登録</h2>
+        <div class="loginSec-top">
+            <h1 class="loginSec-title">Tastitt</h1>
         </div>
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -44,11 +44,10 @@
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="パスワード確認">
             </div>
 
-            <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Register') }}
-                    </button>
+            <div class="form-submit">
+                <button type="submit" class="">登録</button>
+                <div class="form-link">
+                    <a class="form-link-log" href="{{ route('login') }}">ログインはこちら</a>
                 </div>
             </div>
         </form>

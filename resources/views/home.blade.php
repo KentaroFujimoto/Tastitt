@@ -25,10 +25,13 @@
         </div>
         <ul class="task-list">
             @foreach ($tasks as $task)
-            <li>
+            <li class="{{ $task['date'] < $today ? 'past-deadline' : '' }}">
                 <div class="task-list-main">
                     <div class="task-list-various">
                         <p class="task-list-content">
+                            @if ($task['date'] < $today)
+                                <span class="past-deadline-txt">期限切れ</span>
+                            @endif
                             <span 
                             class="task-list-level"
                             style="{{ $task['level'] === 1 ? 'display: inline' : 'display: none' }}"

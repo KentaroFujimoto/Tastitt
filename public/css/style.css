@@ -1,5 +1,6 @@
+@charset "UTF-8";
 body {
-  font-family: sans-serif;
+  font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "MS Pゴシック", sans-serif;
   font-size: 3.4vw;
   background-color: #fffff0;
 }

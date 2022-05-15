@@ -33,6 +33,10 @@
 
             <div class="form-submit">
                 <button type="submit" class="">ログイン</button>
+                <div class="login-link">
+                    <a href=""><img src="{{ asset('image/ico_line.png') }}" alt=""></a>
+                    <a href=""><img src="{{ asset('image/ico_google.png') }}" alt=""></a>
+                </div>
                 <div class="form-link">
                     @if (Route::has('password.request'))
                         <a class="form-link-pass" href="{{ route('password.request') }}">パスワードをお忘れの場合</a>
