@@ -84,15 +84,18 @@ class PostControllService
 
     public function postComplete($posts)
     {   
-        dd('here');
-        $complete = Task::destroy($posts['id']);
+        $complete = Task::where('id', '=', $posts['id'])
+            ->where('id', '=', $posts['id'])
+            ->update([
+                'deleted_at' => $posts['date'],
+            ]);
 
-        if ($destroy !== 1) {
-            $destroy = false;
+        if ($complete) {
+            $complete = true;
         } else {
-            $destroy = true;
+            $complete = false;
         }
 
-        return $destroy;
+        return $complete;
     }
 }

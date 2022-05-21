@@ -28,6 +28,7 @@ class HomeController extends Controller
         $today = $today->format('Y-m-d');
 
         $tasks = Task::where('user_id', '=', \Auth::id())
+            ->whereNull('deleted_at')
             ->orderBy('date', 'ASC')
             ->get();
 
@@ -227,64 +228,18 @@ class HomeController extends Controller
     public function complete(Request $request)
     {
         $posts = $request->only('id');
+
+        $date = new DateTime('now');
+        $posts['date'] = $date->format('Y-m-d H:i:s');
         
-        $update = $this->postControllService->postComplete($posts);
-    }
+        $complete = $this->postControllService->postComplete($posts);
 
-    public function test()
-    {
-        $ch = curl_init('https://notify-api.line.me/api/notify');
-
-        $now = new DateTime("now");
-        $now_day = $now->format('Y-m-d');
-        $now_time = $now->format('H:i');
-        $now_time = '10:00';
-
-        $users = User::get();
-        
-        for ($i=0; $i<count($users); $i++) {
-            $tasks = array();
-            $line_token = $users[$i]['line_token'];
-
-            $tasks = Task::where('user_id', '=', $users[$i]['id'])
-                ->where('notify_time', '=', $now_time)
-                ->where(function($query) use ($now_day){
-                    $query->where(function($query) use ($now_day){
-                        $query->where('notify_date_1', '=', $now_day);
-                    })
-                    ->orWhere(function($query) use ($now_day){
-                        $query->where('notify_date_2', '=', $now_day);
-                    })
-                    ->orWhere(function($query) use ($now_day){
-                        $query->where('notify_date_3', '=', $now_day);
-                    });
-                })
-                ->get();
-
-            foreach ($tasks as $task) {
-                $date = explode("-", $task['date']);
-                $date = ltrim($date[1], '0')."/".ltrim($date[2], '0')."(".$task['week'].") ";
-                $message = "\n".$task['content']."\n期限:".$date." ".$task['time'];
-
-                $query = http_build_query(['message' => $message]);
-                $header = [
-                        'Content-Type: application/x-www-form-urlencoded',
-                        'Authorization: Bearer ' . $line_token,
-                        'Content-Length: ' . strlen($query)
-                ];
-        
-                $options = [
-                    CURLOPT_RETURNTRANSFER  => true,
-                    CURLOPT_POST            => true,
-                    CURLOPT_HTTPHEADER      => $header,
-                    CURLOPT_POSTFIELDS      => $query
-                ];
-        
-                curl_setopt_array($ch, $options);
-                curl_exec($ch);
-                curl_close($ch);
-            }
-
+        if (! $complete) {
+            session()->flash('message_failure', "タスクを完了できませんでした");
+            return  redirect()->route('home');
         }
+
+        session()->flash('message_success', "タスクを完了しました");
+        return redirect()->route('home');
     }
 }
